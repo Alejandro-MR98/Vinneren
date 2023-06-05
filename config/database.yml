@@ -17,11 +17,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
-  port: "5432"
-  username: postgres
-  password: AMTE_2022
-
+  host: <%= ENV['host_postgres'] %>
+  port: <%= ENV['port_postgres'] %>
+  username: <%= ENV['username_postgres'] %>
+  password: <%= ENV['password_postgres'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
