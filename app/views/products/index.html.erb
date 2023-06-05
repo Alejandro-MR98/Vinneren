@@ -4,6 +4,14 @@
 <%= link_to "Nuevo Producto", new_product_path, class: "btn btn-primary" %>
 <br>
 <br>
+<center>
+  <%= form_with url: products_path, method: :get do |form| %>
+      <%= form.number_field :min_stock, placeholder: "Inventario mínimo", onChange: 'this.form.requestSubmit()', value: params[:min_stock] %>
+      <%= form.number_field :max_stock, placeholder: "Inventario máximo", onChange: 'this.form.requestSubmit()', value: params[:max_stock] %>
+  <% end %>
+</center>
+<br>
+<br>
 <div class="table-responsive-xxl" id="business_sectors">
     <table class="table table-hover table-bordered ">
       <thead class="table-light">

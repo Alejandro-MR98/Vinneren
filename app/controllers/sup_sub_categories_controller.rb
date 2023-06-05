@@ -3,7 +3,7 @@ class SupSubCategoriesController < ApplicationController
 
   # GET /sup_sub_categories or /sup_sub_categories.json
   def index
-    @sup_sub_categories = SupSubCategory.all
+    @sup_sub_categories = SupSubCategory.all.order(number: :asc)
   end
 
   # GET /sup_sub_categories/1 or /sup_sub_categories/1.json

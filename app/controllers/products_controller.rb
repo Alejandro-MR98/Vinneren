@@ -3,7 +3,14 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.all.order(id: :asc)
+
+    if params[:min_stock].present?
+      @products = @products.where("stock >= ?", params[:min_stock])
+    end
+    if params[:max_stock].present?
+      @products = @products.where("stock <= ?", params[:max_stock])
+    end
   end
 
   # GET /products/1 or /products/1.json
