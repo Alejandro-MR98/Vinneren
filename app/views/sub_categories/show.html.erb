@@ -3,8 +3,9 @@
 <%= render @sub_category %>
 
 <div>
-  <%= link_to "Edit this sub category", edit_sub_category_path(@sub_category) %> |
-  <%= link_to "Back to sub categories", sub_categories_path %>
-
-  <%= button_to "Destroy this sub category", @sub_category, method: :delete %>
+  <%= link_to "Editar sub categoría", edit_sub_category_path(@sub_category), class: "btn btn-primary" %> |
+  <%= link_to "Regresar a sub categorías", sub_categories_path , class: "btn btn-primary"%>
+  <br>
+  <br>
+  <%= button_to "Elimanr sub categoría", @sub_category, method: :delete, class: "btn btn-danger" %>
 </div>

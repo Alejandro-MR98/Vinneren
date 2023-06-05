@@ -1,14 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Sub categories</h1>
-
-<div id="sub_categories">
-  <% @sub_categories.each do |sub_category| %>
-    <%= render sub_category %>
-    <p>
-      <%= link_to "Show this sub category", sub_category %>
-    </p>
-  <% end %>
+<h1>Sub Categorías</h1>
+<%= link_to "Nueva Sub Categoría", new_sub_category_path, class: "btn btn-primary" %>
+<br>
+<br>
+<div class="table-responsive-xxl" id="business_sectors">
+    <table class="table table-hover table-bordered ">
+      <thead class="table-light">
+        <tr>
+        <th> Número </th>
+        <th> Nombre </th>
+        <th> Categoría </th>
+        <th> Editar </th>
+        <th> Elimnar</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @sub_categories.each do |sub_category| %>
+            <tr>
+              <td> <%= sub_category.number%> </td>
+              <td> <%= sub_category.name%> </td>
+              <td> <%= sub_category.category.name%> </td>
+              <td> <%= link_to "Editar" , edit_sub_category_path(sub_category), class: "btn btn-primary"%> </td>
+              <td> <%= button_to "Eliminar" , sub_category, method: :delete, class: "btn btn-danger" %> </td>
+          <% end %>  
+      </tbody>
+    </table>  
 </div>
-
-<%= link_to "New sub category", new_sub_category_path %>

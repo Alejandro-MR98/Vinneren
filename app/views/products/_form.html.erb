@@ -1,8 +1,6 @@
 <%= form_with(model: product) do |form| %>
   <% if product.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
       <ul>
         <% product.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,26 +10,26 @@
   <% end %>
 
   <div>
-    <%= form.label :product_name, style: "display: block" %>
-    <%= form.text_field :product_name %>
+    <%= form.label :Nombre_Producto, style: "display: block" %>
+    <%= form.text_field :product_name, class:"col-4"  %>
   </div>
 
   <div>
-    <%= form.label :material_number, style: "display: block" %>
-    <%= form.text_field :material_number %>
+    <%= form.label :Numero_Material, style: "display: block" %>
+    <%= form.text_field :material_number, class:"col-4"  %>
   </div>
 
   <div>
-    <%= form.label :stock, style: "display: block" %>
-    <%= form.number_field :stock %>
+    <%= form.label :Inventario, style: "display: block" %>
+    <%= form.number_field :stock , class:"col-4" %>
   </div>
 
   <div>
-    <%= form.label :sup_sub_category_id, style: "display: block" %>
-    <%= form.text_field :sup_sub_category_id %>
+    <%= form.label :Super_Sub_Categoría, style: "display: block" %>
+    <%= form.collection_select :sup_sub_category_id, SupSubCategory.all.order(number: :asc), :id, :number %>
   </div>
-
+  <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit "Guardar", class: "btn btn-success"%>
   </div>
 <% end %>

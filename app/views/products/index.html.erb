@@ -1,14 +1,33 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Products</h1>
-
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New product", new_product_path %>
+<h1>Productos</h1>
+<%= link_to "Nuevo Producto", new_product_path, class: "btn btn-primary" %>
+<br>
+<br>
+<div class="table-responsive-xxl" id="business_sectors">
+    <table class="table table-hover table-bordered ">
+      <thead class="table-light">
+        <tr>
+        <th> Sku </th>
+        <th> Nombre Producto </th>
+        <th> Número Material </th>
+        <th> Categoría</th>
+        <th> Inventario </th>
+        <th> Editar </th>
+        <th> Elimnar</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @products.each do |product| %>
+            <tr>
+              <td> <%= product.id%> </td>
+              <td> <%= product.product_name%> </td>
+              <td> <%= product.material_number%> </td>
+              <td> <%= product.sup_sub_category.number%> </td>
+              <td> <%= product.stock%> </td>
+              <td> <%= link_to "Editar" , edit_product_path(product), class: "btn btn-primary"%> </td>
+              <td> <%= button_to "Eliminar" , product, method: :delete, class: "btn btn-danger" %> </td>
+          <% end %>  
+      </tbody>
+    </table>  
+  </div>
