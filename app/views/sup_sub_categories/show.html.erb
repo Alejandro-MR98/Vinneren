@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @sup_sub_category %>
+
+<div>
+  <%= link_to "Edit this sup sub category", edit_sup_sub_category_path(@sup_sub_category) %> |
+  <%= link_to "Back to sup sub categories", sup_sub_categories_path %>
+
+  <%= button_to "Destroy this sup sub category", @sup_sub_category, method: :delete %>
+</div>

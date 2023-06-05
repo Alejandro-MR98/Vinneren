@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sup sub categories</h1>
+
+<div id="sup_sub_categories">
+  <% @sup_sub_categories.each do |sup_sub_category| %>
+    <%= render sup_sub_category %>
+    <p>
+      <%= link_to "Show this sup sub category", sup_sub_category %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New sup sub category", new_sup_sub_category_path %>
